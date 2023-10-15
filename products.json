@@ -1,0 +1,29 @@
+
+[
+    {
+        "name": "Product0 1",
+        "price": 10,
+        "description": "Descripción producto 1."
+    },
+    {
+        "name": "Producto 2",
+        "price": 20,
+        "description": "Descripción producto 2."
+    },
+    {
+        "name": "Producto 3",
+        "price": 14.99,
+        "description": "Descripción producto 3."
+    },
+    {
+        "name": "Producto 4",
+        "price": 25.49,
+        "description": "Descripción producto 4."
+    },
+    {
+        "name": "Producto 5",
+        "price": 10.99,
+        "description": "Descripción producto 5."
+    }
+]
+
