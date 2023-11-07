@@ -1,0 +1,343 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="../controllers/data_handler.js"></script>
+  <script src="../controllers/products.js"></script>
+  <script src="../controllers/shopping_cart.js"></script>
+  <script src="../controllers/utils.js"></script>
+  <script src="../controllers/index.js"></script>
+
+  <div id="productContainer"></div>
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+  <script src="https://kit.fontawesome.com/096bb5ac1f.js" crossorigin="anonymous"></script>
+    
+  <style>
+    .izquierda {
+        margin-left: 0;
+    }
+    .custom-modal-width {
+            max-width: 300px;
+        }
+  </style>
+
+  <!-- Modal Body -->  <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+    <div class=" row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitleId">Iniciar sesión</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Body
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const myModal = new bootstrap.Modal(document.getElementById('modalId'), options)
+  </script>
+</head>
+
+<body>
+  <header>
+    <!-- place navbar here -->
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="P01_index.html">     <!-- Logo de la página -->
+          <img src="LogoP.png" alt="Logo" width="40" height="40">
+        </a>
+      <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+          <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="P01_index.html" aria-current="page">Incio <span class="visually-hidden">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="P01_about_us.html">Sobre nosotros</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Productos</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <a class="dropdown-item" href="P0_1_cat_A.html">Categoría A</a>
+                <a class="dropdown-item" href="P0_1_cat_B.html">Categoría B</a>
+              </div>
+            </li>
+          </ul>
+          <form class="d-flex my-2 my-lg-0 me-auto izquierda">
+            <input class="form-control me-sm-2 izquierda" type="text" placeholder="Buscar perfumes...">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+          </form>
+
+          <body>
+            <i class="fas fa-user"></i>        
+            <div>
+              <i class="sho"></i>
+            </div>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#loginModal" data-bs-toggle="modal" role="button">Ingresar</a>
+                    </li>
+                </ul>
+               
+            <!--Modal de inicio de sesión-->
+            <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered custom-modal-width">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Iniciar Sesión</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="mb-3" style="text-align: left;">
+                        <label for="correo" class="form-label" style="text-align: left;">Correo</label>
+                        <div class="input-group">
+                          <input type="email" class="form-control " id="correo" placeholder="Ingresa tu correo" required>
+                          <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                      </div>
+                      <div class="mb-3" style="text-align: left;">
+                        <label for="contraseña" class="form-label" style="text-align: left;">Contraseña</label>
+                        <div class="input-group">
+                          <input type="password" class="form-control" id="contraseña" placeholder="Ingresa tu contraseña" required>
+                          <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                      </div>
+                      <div style="text-align: center;">
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <p>¿No tienes cuenta? <a href="#registroModal" data-bs-toggle="modal" role="button">Regístrate aquí</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Modal de registro -->
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 modal fade" id="registroModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Registrarse</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body modal-dialog-left">
+                          <form>
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-6">
+                                  <div class="mb-3 input-group">
+                                      <input type="text" class="form-control" placeholder="Nombre">
+                                    </div>
+                                  </div>
+                                <div class="col-6">
+                                    <div class="mb-3 input-group">
+                                      <input type="text" class="form-control" placeholder="Apellidos">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="mb-3 input-group">
+                                <input type="email" class="form-control" placeholder="Tu correo">
+                              </div>
+                              <div class="mb-3 input-group">
+                                <input type="password" class="form-control" placeholder="Contraseña">
+                              </div>
+                              <div class="mb-3 input-group">
+                                <input type="password" class="form-control" placeholder="Confirmar contraseña">
+                              </div>
+                              <div style="text-align: right;">
+                                <button type="submit" class="btn btn-success btn-block">Registrarse</button>
+                            </div>
+                          </form>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+          
+
+          <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                margin: 20px;
+            }
+    
+            .iconos1 {
+                font-size: 36px;
+                margin: 10px;
+            }
+        </style>
+    </head>
+
+    <body1>
+      <a href="P01_cart.html">
+        <i class="fas fa-shopping-cart iconos"></i>
+      </a>
+    </body1>
+
+        </div>
+      </div>
+    </nav>
+    
+  </header>
+  <main>
+    <!---Ubicación--->
+    <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+      <ol class="carousel-indicators">
+          <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
+          <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
+          <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Third slide"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active">
+              <img src="perfume-fondo.jpg" class="d-block mx-auto" alt="First slide" style="max-height: 500px; min-width: 200px;">
+          </div>
+          <div class="carousel-item">
+              <img src="perfumes_fondo.jpg" class="d-block mx-auto" alt="Second slide" style="max-height: 500px;">
+          </div>
+          <div class="carousel-item">
+              <img src="perfumes_fon.jpg" class="d-block mx-auto" alt="Third slide" style="max-height: 500px;">
+          </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+      </button>
+  </div>
+  <div class="container mt-5">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+      <div class="col">
+        <div class="card">
+          <img src="Layton.jpg" class="card-img-top" alt="Layton" style="max-height: 300px; min-width: 200px;">
+            <div class="card-body">
+                <h5 class="card-title">Layton</h5>
+              <p class="card-text">La mejor fragancia de la casa de Parfums de Marley.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="ChanelEDP.jpg" class="card-img-top" alt="Chanel Eu de Parfum" style="max-height: 300px; min-width: 200px;">
+              <div class="card-body">
+                  <h5 class="card-title">Chanel Eu de Parfum</h5>
+                <p class="card-text">Perfume estrella de Chanel, ámbar, cítricos y más.</p>
+              </div>
+            </div>
+          </div>
+        <div class="col">
+          <div class="card">
+            <img src="CreedAventus.avif" class="card-img-top" alt="Creed Aventus" style="max-height: 300px; min-width: 200px;">
+              <div class="card-body">
+                  <h5 class="card-title">Creed Aventus</h5>
+                <p class="card-text">La versatilidad en botella.</p>
+              </div>
+            </div>
+          </div>
+        <div class="col">
+          <div class="card">
+            <img src="nauticavoyage.jpg" class="card-img-top" alt="Nautica Voyage" style="max-height: 300px; min-width: 200px;">
+              <div class="card-body">
+                  <h5 class="card-title">Nautica Voyage</h5>
+                <p class="card-text">Nautica Voyage, perfume fresco, sentirse en el mar.</p>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img src="LeBeauJeanPaul.jpg" class="card-img-top" alt="Le Beau" style="max-height: 300px; min-width: 200px;">
+              <div class="card-body">
+                  <h5 class="card-title">Le Beau Le Parfum Jean Paul Gaultier</h5>
+                <p class="card-text">Para salir de fiesta, coco, almendras y vainilla.</p>
+              </div>
+            </div>
+          </div>
+      <div class="col-md-3">
+        <div class="card">
+          <img src="louis-vuitton-perfume-l-immensité.png" class="card-img-top" alt="Louis Vuitton L'Immensité" style="max-height: 300px; min-width: 200px;">
+            <div class="card-body">
+              <h5 class="card-title">Louis Vuitton L'Immensité</h5>
+            <p class="card-text">La esencia de la aventura y la sofisticación en un frasco.</p>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <img src="BoisImpérial.jpg" class="card-img-top" alt="Bois Impérial" style="max-height: 300px; min-width: 200px;">
+            <div class="card-body">
+              <h5 class="card-title">Bois Impérial</h5>
+            <p class="card-text">Perfume nicho, frescura y amaderado a la vez.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card">
+        <img src="SauvageElixir.jpg" class="card-img-top" alt="Sauvage Elixir" style="max-height: 300px; min-width: 200px;">
+          <div class="card-body">
+              <h5 class="card-title">Sauvage Elixir</h5>
+            <p class="card-text">Todo un elixir.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-center" sytle="align-center">
+        <li class="page-item disabled">
+          <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </main>
+  <footer>
+    <!-- place footer here -->
+
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
+
+
